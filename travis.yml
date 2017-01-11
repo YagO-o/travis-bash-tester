@@ -1,0 +1,17 @@
+sudo: required
+
+language: php
+
+script:
+- ./run_test_karma.sh
+- ./run_test_phpunit.sh phpunit
+- docker-compose up rbacrebuilder
+- if [ ${TRAVIS_PULL_REQUEST_BRANCH} = "false" ]; then
+      printf "1";
+    else
+      printf "2";
+  fi
+
+branches:
+  only:
+    - master
