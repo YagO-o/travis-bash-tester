@@ -1,1 +1,1 @@
-# travis-bash-tester
+# travis test integration
