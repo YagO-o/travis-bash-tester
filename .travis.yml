@@ -5,7 +5,7 @@ language: php
 before_install:
 - git remote update
 - if [ ${TRAVIS_PULL_REQUEST} = "false" ]; then
-      git checkout master;
+      git checkout $TRAVIS_BRANCH;
     else
       git checkout -b $TRAVIS_PULL_REQUEST_BRANCH;
   fi
