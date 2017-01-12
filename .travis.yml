@@ -3,18 +3,18 @@ sudo: required
 language: php
 
 before_install:
-- if [ ${TRAVIS_PULL_REQUEST_BRANCH} = "" ]; then
-        git checkout $TRAVIS_BRANCH
-      else
-        git checkout $TRAVIS_PULL_REQUEST_BRANCH
+- git remote update
+- if [ ${TRAVIS_PULL_REQUEST_BRANCH} = "false" ]; then
+      git checkout -b master;
+    else
+      git checkout -b $TRAVIS_PULL_REQUEST_BRANCH;
   fi
 
-
 script:
-- if [ ${TRAVIS_PULL_REQUEST_BRANCH} = "false" ]; then
-      printf "1";
+- if [ ${TRAVIS_PULL_REQUEST} = "false" ]; then
+      php ./master/master.php;
     else
-      printf "2";
+      php ./pr/pr.php;
   fi
 
 branches:
