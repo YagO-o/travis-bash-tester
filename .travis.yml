@@ -12,9 +12,9 @@ before_install:
 
 script:
 - if [ ${TRAVIS_PULL_REQUEST} = "false" ]; then
-      php ./master/master.php
+      php ./master/master.php;
     else
-      php ./pr/pr.php
+      php ./pr/pr.php;
   fi
 
 branches:
